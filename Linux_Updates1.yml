@@ -1,11 +1,10 @@
---- 
-- 
-  debug: 
-    msg: "{{ disksize_gib }} vs {{ disksize_gib_human }}"
-  name: "Convert first system disk into various formats"
-  vars: 
-    disk: "{{ ansible_facts.disks|selectattr(\"system_disk\")|first }}"
-    disksize_gb: "{{ (disk.size/1000|pow(3))|round|int }} GB"
-    disksize_gb_human: "{{ disk.size|filesizeformat }}"
-    disksize_gib: "{{ (disk.size/1024|pow(3))|round|int }} GiB"
-    disksize_gib_human: "{{ disk.size|filesizeformat(true) }}"
+---
+- name: Upgrade all packages to the latest version
+  hosts: all
+    
+  tasks:
+  
+  - name: Upgrade all packages to the latest version
+    apt:
+      update_cache: yes
+      upgrade: yes
