@@ -1,11 +1,3 @@
---- 
-- 
-  debug: 
-    msg: "{{ disksize_gib }} vs {{ disksize_gib_human }}"
-  name: "Convert first system disk into various formats"
-  vars: 
-    disk: "{{ ansible_facts.disks|selectattr(\"system_disk\")|first }}"
-    disksize_gb: "{{ (disk.size/1000|pow(3))|round|int }} GB"
-    disksize_gb_human: "{{ disk.size|filesizeformat }}"
-    disksize_gib: "{{ (disk.size/1024|pow(3))|round|int }} GiB"
-    disksize_gib_human: "{{ disk.size|filesizeformat(true) }}"
+- name: Output first disk size
+  debug:
+    var: ansible_facts.disks[0].size
