@@ -1,6 +1,5 @@
 --- 
-- 
-  name: "Ansible Create user functionlity module demo"
+- name: "Ansible Create user functionlity module demo"
   remote_user: root
   tasks: 
     - 
