@@ -1,7 +1,6 @@
 --- 
 - 
   name: "Ansible Create user functionlity module demo"
-  hosts: pam
   remote_user: root
   tasks: 
     - 
