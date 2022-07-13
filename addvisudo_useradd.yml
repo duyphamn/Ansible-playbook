@@ -1,0 +1,26 @@
+---
+- name: Ansible Create user functionlity module demo
+  hosts: pam 
+  remote_user: root 
+  tasks:
+     - name: Add user fa_pam
+       ansible.builtin.user:
+        name: fa_pam
+        password: "{{ 'ABC@abc123' | password_hash('sha512') }}"
+        comment: fa_pam
+        createhome: yes        
+        home: /home/fa_pam 
+        
+     - name: Add user systemadmin
+       ansible.builtin.user:
+        name: systemadmin
+        password: "{{ 'ABC@abc123' | password_hash('sha512') }}"
+        comment: systemadmin
+        createhome: yes        
+        home: /home/systemadmin
+        
+     - name: Echo Visudo
+       shell: echo -e "systemadmin    ALL=(ALL)     NOPASSWD:ALL\nfa_pam  ALL=(ALL)       NOPASSWD:/usr/bin/passwd" >> /etc/sudoers
+       
+     - name: Echo SSH Key
+       shell: echo -e "\n#anhpd\nssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDdYYGnOREkgRTT5yrJbdf8Vp0Hbx4jjsJcnnnBu2Lkf7EGSIEYZipzW6RVO/I3ddrQAAIoKfNuGh8PKUK/3Mx2LRULbfbUwKGYRYstuJi6FJ5gIWTXh3dPBHitXPWUqtFKvFRWryBowGgMS4cpUpaZGeDLan/w8H+sPWWDylKHJ8A0aG8dD/pUfRmaUoBNUpVAEhSBF3icf6dhrQ+CLDOhAjxOIv/YMWgyTLIHI+dJyR1mUhIX8aeaJ15+2B7jSeHVb/9R2FLBUb8E6ex0a0fRuNrEGi/HcrMZPVSu1ea1MYCOQ+RfuNSwIiepjkvKo6DYEXHeqRI8D1BvunkWnMfJ" >> /root/.ssh/authorized_keys
