@@ -1,3 +1,4 @@
+---
 - name: Get disk facts
   community.windows.win_disk_facts:
 
