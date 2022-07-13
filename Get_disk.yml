@@ -1,6 +1,5 @@
 ---
 - name: Check Disk Space Usage
-  hosts: srv1.example.com
   tasks:
           - name: Disk usage from command module
             command: df -h
