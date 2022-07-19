@@ -6,7 +6,6 @@
             register: space
           - debug:
                   var: space.stdout_lines
-            when: ACTION == "disk"
             
           - name : Ping Server
             win_ping:
