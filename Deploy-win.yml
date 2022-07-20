@@ -1,0 +1,13 @@
+---
+- name: Win-deploy
+  hosts: all
+  tasks:
+          - name: Install IIS (Web-Server only)
+            ansible.windows.win_feature:
+            name: Web-Server
+            state: present
+            when: ACTION == "disk"     
+            
+          - name : Ping Server
+            win_ping:
+            when: ACTION == "ping"
