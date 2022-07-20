@@ -4,10 +4,10 @@
   tasks:
           - name: Install IIS (Web-Server only)
             ansible.windows.win_feature:
-            name: Web-Server
-            state: present
+              name: Web-Server
+              state: present
             when: ACTION == "iis"     
             
-          - name : Ping Server
+          - name: Ping Server
             win_ping:
             when: ACTION == "ping"
