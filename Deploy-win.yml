@@ -6,7 +6,7 @@
             ansible.windows.win_feature:
             name: Web-Server
             state: present
-            when: ACTION == "disk"     
+            when: ACTION == "iis"     
             
           - name : Ping Server
             win_ping:
