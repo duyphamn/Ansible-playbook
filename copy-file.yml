@@ -2,8 +2,8 @@
 - name: Win-deploy
   hosts: all
   tasks:
-  - name: Copy a single file where the source is on the remote host
-  ansible.windows.win_copy:
+  - name: Copy a single file 
+    win_copy:
     src: D:\windows8.1-kb5015877-x64.msu
     dest: C:\
     remote_src: yes
