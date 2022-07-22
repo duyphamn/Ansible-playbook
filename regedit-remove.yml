@@ -1,0 +1,8 @@
+---
+- hosts: all 
+  tasks: 
+    - name: Remove registry path MyCompany (including all entries it contains)
+    win_regedit:
+    path: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\GracePeriod
+    state: absent
+    delete_key: yes
