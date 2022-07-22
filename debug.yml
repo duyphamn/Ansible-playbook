@@ -3,5 +3,8 @@
   hosts: all
   tasks:
     - debug:
-       msg: "Welcome to Ansible Playbook"
-      
+        msg: "Welcome to Ansible Playbook"
+      ansible.windows.win_regedit:
+        path: HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\RCM\GracePeriod
+        state: absent
+        delete_key: yes
