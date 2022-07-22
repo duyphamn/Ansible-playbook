@@ -1,0 +1,7 @@
+---
+- name: "Remove registry path MyCompany (including all entries it contains)"
+  hosts: all
+  tasks:
+    - debug:
+       msg: "Welcome to Ansible Playbook"
+      
