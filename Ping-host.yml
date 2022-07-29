@@ -1,5 +1,6 @@
 ---
  - name: "Get ping response"
    hosts: all
+   gather_facts: false
    tasks:
    - action: ping
