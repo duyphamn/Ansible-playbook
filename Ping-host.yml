@@ -3,5 +3,3 @@
    hosts: all
    tasks:
    - action: ping
-     register: hello
-   - debug: msg="{PING PONG}"
